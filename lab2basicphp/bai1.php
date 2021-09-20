@@ -1,4 +1,5 @@
 <h4>Bài 1: </h4>
+<div style="width: 88%;">
 <?php
 
     function checkSNT($num) {
@@ -60,4 +61,5 @@
 
     echo "<br><b>c)</b> Chữ số lớn nhất trong $numRand là: ".numMax($numRand);
 ?>
-<br><br>
+</div>
+<br>

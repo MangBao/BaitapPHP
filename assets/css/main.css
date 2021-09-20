@@ -37,7 +37,7 @@
     left: 0;
     object-fit: cover;
     z-index: 0;
-    background: linear-gradient(113deg, #134285, #1a4d88 50%, #4ba1a3 85%, #74e6b8);
+    background: linear-gradient(113deg, #2560b3, #2462aa 50%, #4ba1a3 85%, #74e6b8);
 }
 
 .home {
@@ -48,22 +48,6 @@
     padding-left: 5rem;
 }
 
-.webcoderskull__subtext-wrapper {
-    position: absolute;
-    top: 50%;
-    left: 0;
-    transform-origin: center left;
-    transform: translate(-50%, -50%);
-}
-
-.webcoderskull__subtext {
-    transform: rotate(-90deg) translateY(50%);
-}
-
-.webcoderskull__subtext.--colored-white {
-    color: #fff;
-}
-
 .wrapper {
     margin: 0 3.875rem;
 }
@@ -71,4 +55,5 @@
 .name h1 {
     letter-spacing: 10px;
     font-size: 50px;
+    /* color: #fff; */
 }

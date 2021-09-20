@@ -1,35 +1,34 @@
 <h4>Bài 5:</h4>
 <?php
     require_once "./lab2basicphp/bai1.php";
-    // function ktSNT($num) {
-    //     // so nguyen num < 2 khong phai la so nguyen to
-    //     if ($num < 2) {
-    //         return false;
-    //     }
-    //     // check so nguyen to khi num >= 2
-    //     $sqrtNum = sqrt($num);
-    //     for ($i = 2; $i <= $sqrtNum; $i++) {
-    //         if ($num % $i == 0) {
-    //             return false;
-    //         }
-    //     }
-    //     return true;
-    // }
+
+    function openWriteFile($p, $n) {
+        if(file_exists($p)){
+            // echo "File ton tai";
+            $fp = @fopen($p, "a+");
+
+            if(!$fp){
+                echo "Mở file lỗi";
+            }else{
+                $data = $n." ";
+                fwrite($fp, $data);
+                fclose($fp);
+            }
+        }
+        return $fp;
+    }
 
     $numRand = rand(-100,100);
     $path = "./assets/other/soNT.txt";
 
-    if(checkSNT(2)){
-        echo "So nt";
+    if(checkSNT($numRand)){
+        // echo "La so nguyen to";
+        openWriteFile($path, $numRand);
+        echo "$numRand Là số nguyên tố, và đã được ghi vào file soNT.txt";
+
+
     } else {
-        echo "Ko phai so nt";
+        echo "$numRand Không phải là số nguyên tố";
     }
-
-    if(file_exists($path)){
-        echo "File ton tai";
-    }
-    // if(checkSNT($numRand)){
-
-    // }
 
 ?>
