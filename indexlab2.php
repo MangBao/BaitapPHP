@@ -27,7 +27,7 @@
                             <h3>Lab 2 Basic PHP</h3> <br>
                         </div>
 
-                        <div style="font-weight: 500; font-style: italic;">
+                        <div style="font-weight: 500; font-style: italic; color: #fff;">
                         <?php
                             require_once "./Lab2BasicPHP/bai1.php";
                             require_once "./Lab2BasicPHP/bai2.php";

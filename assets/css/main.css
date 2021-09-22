@@ -52,8 +52,15 @@
     margin: 0 3.875rem;
 }
 
+#title {
+    color: #fff;
+}
+
 .name h1 {
     letter-spacing: 10px;
     font-size: 50px;
-    /* color: #fff; */
+    background: -webkit-linear-gradient(rgb(240, 240, 152), rgb(243, 53, 148));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    /* box-shadow: 5px 10px #000; */
 }
