@@ -105,7 +105,7 @@
             <div class="title">
                 <?php
                 if(empty($_POST["hoten"]) || empty($_POST["diachi"]) || empty($_POST["sdt"]) || empty($_POST["mon"]) 
-                || !is_numeric($_POST["sdt"]) || is_numeric($_POST["hoten"]) || !preg_match("/^[a-zA-Z0-9]*$/",$_POST["hoten"])){
+                || !is_numeric($_POST["sdt"]) || is_numeric($_POST["hoten"]) || !preg_match("/^[a-zA-Z0-9]*$/",$_POST["hoten"]) || $sdt <= 0){
                     echo $error;
                 }
                 else echo $susscess;
