@@ -1,6 +1,6 @@
 <h4>Bài 5:</h4>
 <?php
-    require_once "./lab2basicphp/bai1.php";
+    require_once "../lab2basicphp/bai1.php";
 
     function openWriteFile($p, $n) {
         if(file_exists($p)){
@@ -19,7 +19,7 @@
     }
 
     $numRand = rand(-100,100);
-    $path = "./assets/other/soNT.txt";
+    $path = "../assets/other/soNT.txt";
 
     if(checkSNT($numRand)){
         // echo "La so nguyen to";
