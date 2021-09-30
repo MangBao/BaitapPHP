@@ -104,7 +104,8 @@
         <form action="bai4config.php"  method="post">
             <div class="title">
                 <?php
-                if(empty($_POST["hoten"]) || empty($_POST["diachi"]) || empty($_POST["sdt"]) || empty($_POST["mon"]) || !is_numeric($_POST["sdt"])){
+                if(empty($_POST["hoten"]) || empty($_POST["diachi"]) || empty($_POST["sdt"]) || empty($_POST["mon"]) 
+                || !is_numeric($_POST["sdt"]) || is_numeric($_POST["hoten"])){
                     echo $error;
                 }
                 else echo $susscess;
@@ -116,6 +117,9 @@
                 <?php
                     if (empty($_POST["hoten"])) {  
                         echo "<span style='text-align: center; color:green; margin-left: 38%;' color='green'>Vui lòng nhập tên! </span>";           
+                    }
+                    if (is_numeric($_POST["hoten"])){
+                        echo "<span style='text-align: center; color:green; margin-left: 38%;' color='green'>Vui lòng tên là chữ! </span>";
                     }
                 ?>
                 <li>
