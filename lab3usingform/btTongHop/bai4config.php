@@ -97,8 +97,8 @@
             $sdt = trim($sdt);
         }
 
-        $susscess = "Bạn đã đăng nhập thành công, dưới đây là thông tin của bạn";
-        $error = "Đăng nhập thất bại, dường như bạn thiếu gì đó!!";
+        $susscess = "Bạn đã đăng nhập thành công, dưới đây là thông tin của bạn 😁";
+        $error = "Đăng nhập thất bại, dường như bạn thiếu gì đó!! ☹️";
     ?>
     <div class="content">
         <form action="bai4config.php"  method="post">

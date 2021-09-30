@@ -143,14 +143,22 @@
                     ?>
                     </label>                    
                 </li>
-                
+                <?php
+                    if (empty($_POST["sothunhat"]) || !is_numeric($_POST["sothunhat"])) {  
+                        echo "<span style='text-align: center; color:green; margin-left: 38%;' color='green'>Vui lòng nhập số! </span>";           
+                    }
+                ?>
                 <li>
                     <label for="sothunhat">Số thứ nhất: </label>
                     <div>
                         <input type="text" name="sothunhat" value="<?php echo $a; ?>">
                     </div>
                 </li>
-                
+                <?php
+                    if (empty($_POST["sothuhai"]) || !is_numeric($_POST["sothuhai"])) {  
+                        echo "<span style='text-align: center; color:green; margin-left: 38%;' color='green'>Vui lòng nhập số! </span>";           
+                    }
+                ?>
                 <li>
                     <label for="sothuhai">Số thứ hai: </label>
                     <div>

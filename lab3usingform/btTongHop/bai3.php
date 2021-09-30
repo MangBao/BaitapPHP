@@ -37,7 +37,7 @@
             padding-top: 10px;
         }
 
-        .title,
+        .title, 
         .tinh {
             text-align: center;
         }
