@@ -110,6 +110,8 @@
                 else echo $susscess;
                 ?>
             </div>
+            <hr style="width: 70%;"/>
+            
             <ul>
                 <?php
                     if (empty($_POST["hoten"])) {  

@@ -88,6 +88,7 @@
     <div class="content">
         <form action="bai3ketqua.php" class="content" method="post">
             <div class="title">Phép tính trên 2 số</div>
+            <hr style="width: 70%;"/>
             <ul>
                 <li style="display: block;">
                     <label for="pheptinh">Chọn phép tính: </label>

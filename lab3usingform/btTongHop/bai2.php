@@ -108,6 +108,7 @@
     <div class="content">
         <form action="bai2.php" class="content" method="post">
             <div class="title">Thanh toán tiền điện</div>
+            <hr style="width: 70%;"/>
             <ul>
                 <?php
                     if (empty($_POST["ten"])) {  

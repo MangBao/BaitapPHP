@@ -100,6 +100,7 @@
     <div class="content">
         <form action="bai1.php" class="content" method="post">
             <div class="title">Diện tích hình chữ nhật</div>
+            <hr style="width: 70%;"/>
             <ul>
                 <?php 
                     if (!is_numeric($chieudai) || !is_numeric($chieurong)) 

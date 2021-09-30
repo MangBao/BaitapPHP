@@ -88,6 +88,7 @@
     <div class="content">
         <form action="bai4config.php"  method="post">
             <div class="title">Enter your information</div>
+            <hr style="width: 70%;"/>
             <ul>
                 <li>
                     <label for="pheptinh">Họ tên: </label>                    
