@@ -145,12 +145,13 @@
                 </li>
                 
                 <?php
-                    if (empty($_POST["sdt"])) {  
+                    if (empty($_POST["sdt"]) || ($_POST["sdt"] <= 0)) {  
                         echo "<span style='text-align: center; color:green; margin-left: 38%;' color='green'>Vui lòng nhập số điện thoại! </span>";           
                     }
                     if (!is_numeric($_POST["sdt"])){
                         echo "<span style='text-align: center; color:green; margin-left: 38%;' color='green'>Vui lòng nhập số, không phải chữ! </span>";
                     }
+                    
                 ?>
                 <li>
                     <label for="sdt">Số điện thoại: </label>
@@ -194,7 +195,7 @@
                 
                 <?php
                     if (empty($_POST["mon"])) {  
-                        echo "<span style='text-align: center; color:green; margin-left: 38%;' color='green'>Vui lòng chọn môn học! </span>";           
+                        echo "<span style='text-align: center; color:green; margin-left: 38%;' color='green'>Vui lòng chọn ít nhất 1 môn học! </span>";           
                     }
                 ?>
                 <li>
