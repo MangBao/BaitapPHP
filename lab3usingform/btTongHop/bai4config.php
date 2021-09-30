@@ -105,7 +105,7 @@
             <div class="title">
                 <?php
                 if(empty($_POST["hoten"]) || empty($_POST["diachi"]) || empty($_POST["sdt"]) || empty($_POST["mon"]) 
-                || !is_numeric($_POST["sdt"]) || is_numeric($_POST["hoten"])){
+                || !is_numeric($_POST["sdt"]) || is_numeric($_POST["hoten"]) || !preg_match("/^[a-zA-Z0-9]*$/",$_POST["hoten"])){
                     echo $error;
                 }
                 else echo $susscess;
@@ -119,7 +119,10 @@
                         echo "<span style='text-align: center; color:green; margin-left: 38%;' color='green'>Vui lòng nhập tên! </span>";           
                     }
                     if (is_numeric($_POST["hoten"])){
-                        echo "<span style='text-align: center; color:green; margin-left: 38%;' color='green'>Vui lòng tên là chữ! </span>";
+                        echo "<span style='text-align: center; color:green; margin-left: 38%;' color='green'>Vui lòng nhập tên là chữ! </span>";
+                    }
+                    if (!preg_match("/^[a-zA-Z0-9]*$/",$_POST["hoten"])){
+                        echo "<span style='text-align: center; color:green; margin-left: 38%;' color='green'>Tên không chưa ký tự hoặc số! </span>";
                     }
                 ?>
                 <li>
