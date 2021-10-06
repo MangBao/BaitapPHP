@@ -1,59 +1,133 @@
 <?php
     $time = date_default_timezone_set("Asia/Ho_Chi_Minh"); 
+    $date = date('d/m/Y');
 
-    echo "Xổ số kiến thiết Khánh Hòa $time <br>";
+    $notifi = "Xổ số kiến thiết Khánh Hòa $date.";
 
-    echo "Giải 8: ";
+    $title8 = "Giải 8: ";
     for($i = 0; $i < 1; $i++){
-        $a = rand(10, 99);
-        echo "<span style='color: red'>$a</span>";
+        $a = rand(0, 99);
+        if($a < 10){
+            $a = "0$a";
+        }
+        $g8 = $a;
     }
 
-    echo "<br> Giải 7: ";
+    $title7 = "Giải 7: ";
     for($i = 0; $i < 1; $i++){
-        $a = rand(100, 999);
-        echo "$a";
+        $a = rand(0, 999);
+        if($a < 100 && $a >= 10){
+            $a = "0$a";
+        } elseif ($a < 10){
+            $a = "00$a";
+        }
+        $g7 = $a;        
     }
 
-    echo "<br> Giải 6: ";
+    $title6 = "Giải 6: ";
+    $g6 = array();
     for($i = 0; $i < 3; $i++){
-        $a = rand(1000, 9999);
-        echo "$a"." ";
+        $a = rand(0, 9999);
+        if($a < 1000 && $a >= 100){
+            $a = "0$a";
+        } elseif ($a < 100 && $a >= 10){
+            $a = "00$a";
+        } elseif ($a < 10){
+            $a = "000$a";
+        }
+        // $g6 = "$a";
+        array_push($g6, $a);
     }
 
-    echo "<br> Giải 5: ";
+    $title5 = "Giải 5: ";
     for($i = 0; $i < 1; $i++){
-        $a = rand(1000, 9999);
-        echo "$a"." ";
+        $a = rand(0, 9999);
+        if($a < 1000 && $a >= 100){
+            $a = "0$a";
+        } elseif ($a < 100 && $a >= 10){
+            $a = "00$a";
+        } elseif ($a < 10){
+            $a = "000$a";
+        }
+        $g5 = $a;
     }
 
-    echo "<br> Giải 4: ";
+    $title4 = "Giải 4: ";
+    $g4 = array();
     for($i = 0; $i < 6; $i++){
-        $a = rand(10000, 99999);
-        echo "$a"." ";
+        $a = rand(0, 99999);
+        if($a < 10000 && $a >= 1000){
+            $a = "0$a";
+        }elseif ($a < 1000 && $a >= 100){
+            $a = "00$a";
+        } elseif ($a < 100 && $a >= 10){
+            $a = "000$a";
+        } elseif ($a < 10){
+            $a = "0000$a";
+        }
+        array_push($g4, $a);
     }
 
-    echo "<br> Giải 3: ";
+    $title3 = "Giải 3: ";
+    $g3 = array();
     for($i = 0; $i < 2; $i++){
-        $a = rand(10000, 99999);
-        echo "$a"." ";
+        $a = rand(0, 99999);
+        if($a < 10000 && $a >= 1000){
+            $a = "0$a";
+        }elseif ($a < 1000 && $a >= 100){
+            $a = "00$a";
+        } elseif ($a < 100 && $a >= 10){
+            $a = "000$a";
+        } elseif ($a < 10){
+            $a = "0000$a";
+        }
+        array_push($g3, $a);
     }
 
-    echo "<br> Giải 2: ";
+    $title2 = "<br> Giải 2: ";
     for($i = 0; $i < 1; $i++){
-        $a = rand(10000, 99999);
-        echo "$a"." ";
+        $a = rand(0, 99999);
+        if($a < 10000 && $a >= 1000){
+            $a = "0$a";
+        }elseif ($a < 1000 && $a >= 100){
+            $a = "00$a";
+        } elseif ($a < 100 && $a >= 10){
+            $a = "000$a";
+        } elseif ($a < 10){
+            $a = "0000$a";
+        }
+        $g2 = $a;
     } 
 
-    echo "<br> Giải 1: ";
+    $title1 = "Giải 1: ";
     for($i = 0; $i < 1; $i++){
-        $a = rand(10000, 99999);
-        echo "$a"." ";
+        $a = rand(0, 99999);
+        if($a < 10000 && $a >= 1000){
+            $a = "0$a";
+        }elseif ($a < 1000 && $a >= 100){
+            $a = "00$a";
+        } elseif ($a < 100 && $a >= 10){
+            $a = "000$a";
+        } elseif ($a < 10){
+            $a = "0000$a";
+        }
+        $g1 = $a;
     }
 
-    echo "<br> Giải ĐB: ";
+    $titleDB = "Giải ĐB: ";
     for($i = 0; $i < 1; $i++){
-        $a = rand(100000, 999999);
-        echo "<span style='color: red'>$a</span>"." ";
+        $a = rand(0, 999999);
+        if($a < 100000 && $a >= 10000){
+            $a = "0$a";
+        } elseif($a < 10000 && $a >= 1000){
+            $a = "00$a";
+        }elseif ($a < 1000 && $a >= 100){
+            $a = "000$a";
+        } elseif ($a < 100 && $a >= 10){
+            $a = "0000$a";
+        } elseif ($a < 10){
+            $a = "00000$a";
+        }
+        $gDB = $a;
     }
 ?>
