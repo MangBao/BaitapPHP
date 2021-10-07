@@ -10,12 +10,18 @@
         html {
             height: 100%;
         }
+
         body {
-            display: flex;
-            justify-content: center;
-            margin-top: 220px;
+
             background: linear-gradient(113deg, #82f3b5, #ff9ba3 50%, #fdffa3 85%, #ffc894);
         }
+
+        .content {
+            display: flex;
+            justify-content: center;
+            margin-top: 100px;
+        }
+
         #customers {
             font-family: Arial, Helvetica, sans-serif;
             border-collapse: collapse;
@@ -46,40 +52,122 @@
             background-color: rgb(0 130 31 / 52%);
             color: white;
         }
+
+        input {
+            outline: none;
+            border-radius: 5px;
+            border: none;
+        }
+
+        #them {
+            height: 40px;
+            align-self: center;
+            cursor: pointer;
+        }
     </style>
 </head>
 
 <body>
 
     <?php
-    $mathang = array(
+    $mathangs = array(
         "mh01" => array("A001", "Sữa tắm XMEN", "Chai 50ml", 50),
         "mh02" => array("A002", "Dầu gội LifeBoy", "Chai 50ml", 20),
         "mh03" => array("B001", "Dầu ăn Cái Lân", "Chai 1 lít", 20),
         "mh04" => array("B002", "Đường cát", "Kg", 15),
-        "mh05" => array("C001", "Chén xứ Minh Long", "Bộ 10 cái", 2)
+        "mh05" => array("C001", "Chén xứ Minh Long", "Bộ 10 cái", 2),
     );
-    ?>
-    
-    <table id="customers">
-        <tr>
-            <th>Mã mặt hàng</th>
-            <th>Tên mặt hàng</th>
-            <th>Đơn vị tính</th>
-            <th>Số lượng</th>
-        </tr>
-        <?php
-        for ($i = 1; $i <= count($mathang); $i++) {
-            echo
-            "<tr>
-                    <td>" . $mathang['mh0' . $i . ''][0] . "</td>
-                    <td>" . $mathang['mh0' . $i . ''][1] . "</td>
-                    <td>" . $mathang['mh0' . $i . ''][2] . "</td>
-                    <td>" . $mathang['mh0' . $i . ''][3] . "</td>
-                </tr>";
+
+    $err = "";
+
+    if (isset($_POST["mamh"]) && isset($_POST["tenmh"]) && isset($_POST["dv"]) && isset($_POST["sl"])) {
+        $mamh = $_POST["mamh"];
+        $tenmh = $_POST["tenmh"];
+        $dv = $_POST["dv"];
+        $sl = $_POST["sl"];
+        if (is_numeric($tenmh)) {
+            $err = "(*) Tên mặt hàng không phải số!!!";
         }
-        ?>
-    </table>
+        
+        if(isset($_POST["them"])){
+            $mh = array($mamh, $tenmh, $dv, $sl);
+            $index = count($mathangs);
+            $index +=1;
+            
+            // $mh_n = "mh"
+            if($index < 10){
+                $index = "mh0".$index;
+            }
+            else{
+                $index = "mh".$index;
+            }
+
+            // array_push($mathangs, $mh_n);
+            
+        }
+        $mathangs[$index] = $mh;
+        // echo $index;
+        // print_r($mathangs);
+    } else {
+        $mamh = "";
+        $tenmh = "";
+        $dv = "";
+        $sl = 0;
+    }
+    ?>
+
+    <form action="" method="post" style="display: flex; justify-content: center;">
+        <table id="customers">
+            <tr>
+                <th>Mã mặt hàng</th>
+                <th>Tên mặt hàng</th>
+                <th>Đơn vị tính</th>
+                <th>Số lượng</th>
+            </tr>
+            <tr>
+                <td>
+                    <input type="text" name="mamh">
+                </td>
+                <td>
+                    <input type="text" name="tenmh">
+                </td>
+                <td>
+                    <input type="text" name="dv">
+                </td>
+                <td>
+                    <input type="text" name="sl">
+                </td>
+            </tr>
+        </table>
+        <input type="submit" value="Thêm sản phẩm" name="them" id="them">
+
+    </form>
+    <div class="content">
+        <table id="customers">
+            <tr>
+                <th>Mã mặt hàng</th>
+                <th>Tên mặt hàng</th>
+                <th>Đơn vị tính</th>
+                <th>Số lượng</th>
+            </tr>
+            <?php
+            for ($i = 1; $i <= count($mathangs); $i++) {
+                echo
+                "<tr>
+                    <td>" . $mathangs['mh0' . $i . ''][0] . "</td>
+                    <td>" . $mathangs['mh0' . $i . ''][1] . "</td>
+                    <td>" . $mathangs['mh0' . $i . ''][2] . "</td>
+                    <td>" . $mathangs['mh0' . $i . ''][3] . "</td>
+                </tr>";
+            }
+            ?>
+        </table>
+    </div>
+    <span style="color: red;
+    font-size: 1.5rem;
+    display: flex;
+    justify-content: center;
+    margin-top: 25px;"><?php echo $err; ?></span>
 </body>
 
 </html>
