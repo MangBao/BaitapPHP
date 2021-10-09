@@ -85,6 +85,7 @@
         // Lưu tất cả giải thưởng và chuyển về JSON để qua javascript xử lý
         $dsGiai = array("gDB" => $gDB, "g1" => $g1, "g2" => $g2, "g3" => $g3, "g4" => $g4, "g5" => $g5, "g6" => $g6, "g7" => $g7, "g8" => $g8);
         $dsGiaiJSON = json_encode($dsGiai);
+        echo $dsGiaiJSON;
     ?>
     <!-- 
         * Đoạn kiểm tra giải thưởng em xin phép dùng JS và biến đã lưu ở PHP 
