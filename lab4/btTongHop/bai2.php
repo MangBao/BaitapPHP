@@ -16,33 +16,20 @@
 <body>
     <?php
     $tong = 0;
-    
-    // $c = $_REQUEST['tinh'];
-    if (isset($_POST['mang'])) {
-        $a = explode(",", $_POST['mang']);
-        $b = implode(",", $a);
-        if (isset($_POST['tinh'])) {
-            $tong = array_sum($a);
+    $mang = "";
+    if (($_SERVER['REQUEST_METHOD'] == 'POST')) {
+
+        if (isset($_POST['mang'])) {
+            $mang = explode(",", trim($_POST['mang']));
+            // $b = implode(",", $a);
+            if (isset($_POST['tinh'])) {
+                $tong = array_sum($a);
+            }
         }
-    } else $a = 0;
+    }
     ?>
 
     <form action="" method="POST">
-        <!-- <div>
-            <h1 style="text-align: center;">Nhập và tính trên dãy số</h1>
-            <div style="margin-bottom: 5px;">
-                <span>Nhập dãy số: </span>
-                <input type="text" name="mang" value="<?php echo $a ?>"><span style="color: red;">(*)</span>
-            </div>
-            <div style="text-align: center; margin-bottom: 5px;">
-                <input type="submit" name="tinh" value="Tổng dãy số">
-            </div>
-            <div style="margin-bottom: 5px;">
-                <span>Tổng dãy số: </span>
-                <input type="text" name="kq" readonly value="<?php echo $tong ?>">
-            </div>
-            <span style="color: red;">(*)</span><span>Các số được nhập cách nhau bằng dấu ","</span>
-        </div> -->
         <div class="section">
             <div class="container">
                 <div class="row full-height justify-content-center">
@@ -56,7 +43,7 @@
                                                 <h4 class="mb-4 pb-3">Nhập và tính trên dãy số</h4>
                                                 <!-- <span><?php echo $err; ?></span> -->
                                                 <div class="form-group">
-                                                    <input style="width: 70%;" type="text" name="mang" class="form-style" placeholder="Nhập vào mảng" value="<?php echo $b ?>">
+                                                    <input style="width: 70%;" type="text" name="mang" class="form-style" placeholder="Nhập vào mảng" value="<?php echo $mang ?>">
                                                     <span style="color: red;">(*)</span>
                                                     <i class="input-icon uil uil-at"></i>
                                                 </div>
@@ -66,7 +53,7 @@
                                                     <i class="input-icon uil uil-lock-alt"></i>
                                                 </div>
                                                 <div style="margin-top: 10px;">
-                                                <span style="color: red; ">(*)</span><span>Các số được nhập cách nhau bằng dấu ","</span>
+                                                    <span style="color: red; ">(*)</span><span>Các số được nhập cách nhau bằng dấu ","</span>
                                                 </div>
                                             </div>
                                         </div>

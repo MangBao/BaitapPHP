@@ -12,7 +12,8 @@
 
 <body>
     <?php
-
+    $err = "";
+    $result = "";
     function isFloat($n)
     {
         return $n === +$n && $n !== ($n | 0);
@@ -71,7 +72,7 @@
         if (is_numeric($n)) {
             $tb = $result = "";
             $x = rand(-100, 100);
-            $err = "";
+            
 
             if ($n < 0) {
                 $err = "<font color='red'>Không được nhập số âm! </font>";
@@ -92,7 +93,7 @@
             $err = "<font color='red'>Vui lòng nhập vào số tự nhiên! </font>";
         }
     } else
-        $n = 0;
+        $n = "";
     
     ?>
 
