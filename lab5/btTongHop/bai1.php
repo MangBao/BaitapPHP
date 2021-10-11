@@ -6,13 +6,17 @@
     <title>Tính chu vi và diện tích</title>
     <style>
         fieldset {
-            background-color: #eeeeee;
+            background-color: #92ffee91;
+            width: 700px;
+            border-radius: 8px;
+            margin: 140px auto;
         }
 
         legend {
-            background-color: gray;
+            background-color: #5f32d5;
             color: white;
             padding: 5px 10px;
+            border-radius: 4px;
         }
 
         input {
@@ -106,22 +110,23 @@
         }
     }
     $str = NULL;
-    $errors = [];
+    $error = "";
     if (($_SERVER['REQUEST_METHOD'] == 'POST')) {
         if (isset($_POST['hinh'])) {
             $hinh = $_POST['hinh'];
             $ten = trim($_POST['ten']);
             $doDai = trim($_POST['dodai']);
             $arr = explode(",", $doDai);
-            $flag = true; // Dùng để kiểm tra các giá trị độ dài có phần tử <= 0 hay không
+
+            $flag = true; 
             foreach ($arr as $a) {
                 if ($a <= 0) {
                     $flag = false;
                     break;
                 }
             }
-            // Không có thì tiếp tục xử lý
-            if ($flag == true) {
+            
+            if ($flag) {
                 switch ($hinh) {
                     case 'hv':
                         if (count($arr) == 1) {
@@ -131,7 +136,7 @@
                             $str = "Diện tích hình vuông " . $hv->getTen() . " là : " . $hv->tinh_DT() . " \n" .
                                 "Chu vi của hình vuông " . $hv->getTen() . " là : " . $hv->tinh_CV();
                         } else {
-                            array_push($errors, "Chỉ nhập vào 1 giá trị độ dài đối với hình vuông");
+                            $error = "Hình vuông chỉ cần 1 giá trị đầu vào";
                         }
                         break;
                     case 'ht':
@@ -142,7 +147,7 @@
                             $str = "Diện tích hình tròn " . $ht->getTen() . " là : " . $ht->tinh_DT() . " \n" .
                                 "Chu vi của hình tròn " . $ht->getTen() . " là : " . $ht->tinh_CV();
                         } else {
-                            array_push($errors, "Chỉ nhập vào 1 giá trị độ dài đối với hình tròn");
+                            $error = "Hình tròn chỉ cần 1 giá trị đầu vào";
                         }
                         break;
                     case 'htgd':
@@ -153,7 +158,7 @@
                             $str = "Diện tích hình tam giác đều " . $htgd->getTen() . " là : " . $htgd->tinh_DT() . " \n" .
                                 "Chu vi của hình tam giác đều " . $htgd->getTen() . " là : " . $htgd->tinh_CV();
                         } else {
-                            array_push($errors, "Chỉ nhập vào 1 giá trị độ dài đối với hình tam giác đều");
+                            $error = "Tam giác đều chỉ cần 1 giá trị đầu vào";
                         }
                         break;
                     case 'htgt':
@@ -166,10 +171,10 @@
                                 $str = "Diện tích hình tam giác thường " . $htgt->getTen() . " là : " . $htgt->tinh_DT() . " \n" .
                                     "Chu vi của hình tam giác thường " . $htgt->getTen() . " là : " . $htgt->tinh_CV();
                             } else {
-                                array_push($errors, "Giá trị bạn nhập không phải 3 cạnh của 1 tam giác");
+                                $error = "Giá trị bạn nhập không phải 3 cạnh của 1 tam giác";
                             }
                         } else {
-                            array_push($errors, "Nhập vào 3 giá trị độ dài đối với hình tam giác thường");
+                            $error = "Tam giác thường cần 3 giá trị đầu vào";
                         }
                         break;
                     case 'hcn':
@@ -180,17 +185,17 @@
                             $str = "Diện tích hình chữ nhật " . $hcn->getTen() . " là : " . $hcn->tinh_DT() . " \n" .
                                 "Chu vi của hình chữ nhật " . $hcn->getTen() . " là : " . $hcn->tinh_CV();
                         } else {
-                            array_push($errors, "Nhập vào 2 giá trị độ dài đối với hình chữ nhật");
+                            $error = "Hình chữ nhật cần 2 giá trị đầu vào";
                         }
                         break;
                 }
             }
             // Xuất thông báo lỗi giá trị <= 0 
             else {
-                array_push($errors, "Bạn cần nhập các giá trị độ dài lớn hơn 0");
+                $error = "Hãy nhập giá trị lớn hơn 0";
             }
         } else {
-            array_push($errors, "Bạn chưa chọn hình cần tính");
+            $error = "Hãy chọn loại hình trước khi tính";
         }
     }
     ?>
@@ -225,11 +230,7 @@
                 <tr>
                     <td colspan="2" align="center" style="color: red;">
                         <?php
-                        if (count($errors) > 0) {
-                            foreach ($errors as $err) {
-                                echo $err . "<br>";
-                            }
-                        }
+                        echo $error;
                         ?>
                     </td>
                 </tr>
