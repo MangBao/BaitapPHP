@@ -219,12 +219,10 @@ require_once "../bttrenlop/inforGV_SV.php"
                                                 </select>
                                             </div>
                                             <div class="form-group SV" style="margin-top: 12px;">
-                                                <input class="form-style" placeholder="Lớp" type="text" name="lop" value="<?php if (isset($_POST["lop"])) echo $_POST["lop"]; ?>" />
+                                                <input  class="form-style" placeholder="Lớp" type="text" name="lop" value="<?php if (isset($_POST["lop"])) echo $_POST["lop"]; ?>" />
                                             </div>
-                                            <input type="submit" href="#" name="show" class="btn mt-4"></input>
-                                            <!-- <div id="result"> -->
-                                            <!-- <?php echo $infor[0]; ?> -->
-                                            <!-- </div> -->
+                                            <input type="submit" id="" href="#" name="show" class="btn mt-4"></input>
+                                            <input style="width: 100px;" type="button" id="myBtn" href="#" name="show_modal" value="Hiển thị" class="btn mt-4 p-0"></input>                                            
                                         </div>
                                     </div>
                                 </form>
@@ -233,6 +231,14 @@ require_once "../bttrenlop/inforGV_SV.php"
                     </div>
                 </div>
             </div>
+        </div>
+    </div>
+
+    <div id="myModal" class="modal">
+        <!-- Nội Dung Modal -->
+        <div class="modal-content">
+            <span class="close">×</span>
+            <p><?php echo $infor[0]; ?></p>
         </div>
     </div>
 
@@ -255,19 +261,26 @@ require_once "../bttrenlop/inforGV_SV.php"
                     $(".SV").show();
                 }
             });
+
+            
+            var modal = document.getElementById("myModal");
+            var btn = document.getElementById("myBtn");
+            var span = document.getElementsByClassName("close")[0];
+
+            btn.onclick = function() {
+                modal.style.display = "block";
+            }
+            /* Sẽ đóng modal khi nhấn dấu x */
+            span.onclick = function() {
+                modal.style.display = "none";
+            }
+            /*Sẽ đóng modal khi nhấp ra ngoài màn hình*/
+            window.onclick = function(event) {
+                if (event.target == modal) {
+                    modal.style.display = "none";
+                }
+            }
         });
-        // const checkbox = document.getElementById('reg-log');
-
-        // checkbox.addEventListener('change', (event) => {
-        //     if (event.currentTarget.checked) {
-        //         checkbox.value = "sv";
-        //         alert('checked' + checkbox.value);
-
-        //     } else {
-        //         checkbox.value = "gv";
-        //         alert('not checked' + checkbox.value);
-        //     }
-        // });
     </script>
 </body>
 
