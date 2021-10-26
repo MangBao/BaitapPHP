@@ -8,7 +8,7 @@ class App {
     function __construct(){
         // Array ( [0] => Home [1] => SayHi [2] => 1 [3] => 2 [4] => 3 )
         $arr = $this->UrlProcess();
-        //print_r($arr);
+        // print_r($arr);
         
         // Xử lý controller
         if(isset($arr[0])){

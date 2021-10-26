@@ -29,6 +29,7 @@
 </head>
 
 <body class="crm_body_bg">
+
     <!-- main content part here -->
 
     <nav class="sidebar vertical-scroll  ps-container ps-theme-default ps-active-y">
@@ -39,16 +40,21 @@
             </div>
         </div>
         <ul id="sidebar_menu">
-            <li class="mm-active">
+            <?php
+            $href = explode("/", $_GET["url"]);
+            // echo $href[0];
+            ?>
+            <!-- mm-active -->
+            <li class="<?php if($href[0] == "NhanVien") echo "mm-active"?>">
                 <a class="has-arrow" href="NhanVien/Index" aria-expanded="false">
                     <!-- <i class="fas fa-th"></i> -->
                     <div class="icon_menu">
                         <img src="public/home/img/menu-icon/2.svg" alt="">
                     </div>
                     <span>Nhân viên</span>
-                </a>                
+                </a>
             </li>
-            <li class="">
+            <li class="<?php if($href[0] == "PhongBan") echo "mm-active"?>">
                 <a class="has-arrow" href="PhongBan/Index" aria-expanded="false">
                     <div class="icon_menu">
                         <img src="public/home/img/menu-icon/2.svg" alt="">
@@ -56,7 +62,7 @@
                     <span>Phòng ban</span>
                 </a>
             </li>
-            <li class="">
+            <li class="<?php if($href[0] == "ChucVu") echo "mm-active"?>">
                 <a class="has-arrow" href="ChucVu/Index" aria-expanded="false">
 
                     <div class="icon_menu">
@@ -67,6 +73,7 @@
             </li>
         </ul>
     </nav>
+
 
     <section class="main_content dashboard_part large_header_bg">
         <!-- menu  -->
@@ -79,25 +86,24 @@
                         </div>
                         <div class="serach_field-area d-flex align-items-center">
                             <div class="search_inner">
-                                
-                                <h1 class="search_field" >BÀI TẬP LAB 6</h1>
+                                <h1 class="search_field">BÀI TẬP LAB 6</h1>
                             </div>
                             <span class="f_s_14 f_w_400 ml_25 white_text text_white">Apps</span>
                         </div>
-                        <div class="header_right d-flex justify-content-between align-items-center">                            
+                        <div class="header_right d-flex justify-content-between align-items-center">
                             <div class="profile_info">
-                                <h4 style="cursor: pointer;"><?php echo $_SESSION["user"]["hoNV"]." ".$_SESSION["user"]["tenNV"]; ?></label>
-                                <img src="public/home/img/staf/<?php echo $_SESSION["user"]["hinhAnh"]; ?>" alt="">
-                                <div class="profile_info_iner">
-                                    <div class="profile_author_name">
-                                        <!-- <p>Neurologist </p> -->
-                                        <h5><?php echo $_SESSION["user"]["hoNV"]." ".$_SESSION["user"]["tenNV"]; ?></h5>
+                                <h4 style="cursor: pointer;"><?php echo $_SESSION["user"]["hoNV"] . " " . $_SESSION["user"]["tenNV"]; ?></label>
+                                    <img src="public/home/img/staf/<?php echo $_SESSION["user"]["hinhAnh"]; ?>" alt="">
+                                    <div class="profile_info_iner">
+                                        <div class="profile_author_name">
+                                            <!-- <p>Neurologist </p> -->
+                                            <h5><?php echo $_SESSION["user"]["hoNV"] . " " . $_SESSION["user"]["tenNV"]; ?></h5>
+                                        </div>
+                                        <div class="profile_info_details">
+                                            <a href="#">Thông tin của tôi</a>
+                                            <a href="Login/Logout">Đăng xuất</a>
+                                        </div>
                                     </div>
-                                    <div class="profile_info_details">
-                                        <a href="#">Thông tin của tôi</a>
-                                        <a href="Login/Logout">Đăng xuất</a>
-                                    </div>
-                                </div>
                             </div>
                         </div>
                     </div>
