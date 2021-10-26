@@ -1,16 +1,6 @@
 <?php
-    $con;
-    $servername = "localhost";
-    $username = "root";
-    $password = "";
-    $dbname = "qlbansua";
-
-    $con = mysqli_connect($servername, $username, $password);
-    mysqli_select_db($con, $dbname);
-    mysqli_query($con, "SET NAMES 'utf8'");
-
+require_once "connect.php"
 ?>
-
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Frameset//EN">
 <html>
 
