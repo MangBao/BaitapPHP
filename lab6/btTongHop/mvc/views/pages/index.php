@@ -107,7 +107,7 @@
                             </table>
                         </div>
                     </div> -->
-                    <h1 style="text-align: center; color: red; margin-top: 10rem;">Chào mừng bạn trở lại</h1>
+                    <h1 style="text-align: center; color: red; margin-top: 10rem;">Chào mừng <?php echo $_SESSION["user"]["hoNV"] ." ".$_SESSION["user"]["tenNV"] ?> trở lại</h1>
                 <!-- </div> -->
             </div>
         </div>
