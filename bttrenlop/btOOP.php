@@ -238,7 +238,10 @@ require_once "../bttrenlop/inforGV_SV.php"
         <!-- Nội Dung Modal -->
         <div class="modal-content">
             <span class="close">×</span>
-            <p><?php echo $infor[0]; ?></p>
+            <p><?php 
+            foreach($infor as $i){
+                echo $i;
+            } ?></p>
         </div>
     </div>
 
