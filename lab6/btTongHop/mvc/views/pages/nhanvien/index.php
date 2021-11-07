@@ -68,7 +68,7 @@
                                 <button class="btn btn-primary">
                                     <a href="NhanVien/Create" style="color: #ddd;">Thêm nhân viên</a>
                                 </button>
-                                <input type="text" id="searchInput" onkeyup="searchFunc()" placeholder="Tìm theo họ tên..." title="Tìm theo họ tên">
+                                <input type="text" id="searchInput" onkeyup="searchFunc()" placeholder=" Tìm theo họ tên..." title="Tìm theo họ tên">
                             </div>
                         </div>
                         <div class="white_card_body">
